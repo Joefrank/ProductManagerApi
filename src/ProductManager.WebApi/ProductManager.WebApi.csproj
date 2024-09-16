@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>0ded26f8-89f5-4706-8d24-931b61d80fce</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\V2\**" />
+    <Content Remove="Controllers\V2\**" />
+    <EmbeddedResource Remove="Controllers\V2\**" />
+    <None Remove="Controllers\V2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProductManager.Application.UseCases\ProductManager.Application.UseCases.csproj" />
+    <ProjectReference Include="..\ProductManager.Infrastructure\ProductManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\ProductManager.Persistence\ProductManager.Persistence.csproj" />
+  </ItemGroup>
+ <ItemGroup>
+   <InternalsVisibleTo Include="ProductManager.WebApi.IntegrationTests" />
+ </ItemGroup>
+</Project>
